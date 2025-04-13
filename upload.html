@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="admin-background"></div>
+
+    <div class="content upload-container" id="admin-content">
+        <div id="password-screen" class="password-screen">
+            <h1>Admin Access</h1>
+            <div class="form-group">
+                <input type="password" id="accessPassword" placeholder="Enter admin password" required>
+            </div>
+            <button id="accessButton" class="btn-primary">Access Admin Panel</button>
+            <div id="accessStatus" class="status-message"></div>
+            <a href="index.html" class="back-link">Back to Player</a>
+        </div>
+
+        <div id="upload-form-container" class="hidden">
+            <h1>Music Manager</h1>
+
+            <div class="admin-tabs">
+                <button class="tab-btn active" data-tab="upload">Upload</button>
+                <button class="tab-btn" data-tab="manage">Manage</button>
+            </div>
+
+            <div id="upload-tab" class="tab-content active">
+                <form id="uploadForm">
+                    <div class="form-group">
+                        <label for="songTitle">Song Title</label>
+                        <input type="text" id="songTitle" placeholder="Enter song title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="artistName">Artist Name (Optional)</label>
+                        <input type="text" id="artistName" placeholder="Enter artist name">
+                    </div>
+                    <div class="form-group file-upload">
+                        <label for="songFile" class="file-label">
+                            <span class="file-icon">📁</span>
+                            <span class="file-text">Choose MP3 File</span>
+                        </label>
+                        <input type="file" id="songFile" accept=".mp3" required>
+                        <span id="file-name" class="file-name">No file chosen</span>
+                    </div>
+                    <button type="submit" id="uploadButton" class="btn-primary btn-animated">
+                        <span class="btn-text">Upload Song</span>
+                        <span class="btn-loader"></span>
+                    </button>
+                </form>
+                <div id="uploadStatus" class="status-message"></div>
+            </div>
+
+            <div id="manage-tab" class="tab-content">
+                <div class="song-management">
+                    <div class="song-list-header">
+                        <div class="song-title-header">Title</div>
+                        <div class="song-artist-header">Artist</div>
+                        <div class="song-plays-header">Plays</div>
+                        <div class="song-actions-header">Actions</div>
+                    </div>
+                    <div id="admin-song-list" class="admin-song-list">
+                        <div class="loading-songs">Loading songs...</div>
+                    </div>
+                </div>
+            </div>
+
+            <a href="index.html" class="back-link">Back to Player</a>
+        </div>
+    </div>
+
+    <!-- Edit Song Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Edit Song</h2>
+            <form id="editForm">
+                <input type="hidden" id="editSongId">
+                <div class="form-group">
+                    <label for="editTitle">Song Title</label>
+                    <input type="text" id="editTitle" placeholder="Enter song title" required>
+                </div>
+                <div class="form-group">
+                    <label for="editArtist">Artist Name</label>
+                    <input type="text" id="editArtist" placeholder="Enter artist name">
+                </div>
+                <button type="submit" class="btn-primary btn-animated">
+                    <span class="btn-text">Save Changes</span>
+                    <span class="btn-loader"></span>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

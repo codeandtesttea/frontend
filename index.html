@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="video-background">
+        <video autoplay loop muted id="bg-video" playsinline>
+            <source src="public/background.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div class="content">
+        <h1>Music Player</h1>
+        <p>Immersive audio experience</p>
+
+        <div class="now-playing" id="now-playing">
+            Now playing: <span id="current-song-name">
+                <div class="dot-loader"><span></span><span></span><span></span></div>
+            </span>
+        </div>
+
+        <div class="song-selector">
+            <div class="song-dropdown" id="song-dropdown">
+                <span id="selected-song-text">Select a song</span>
+                <div class="play-count" id="current-play-count">0</div>
+            </div>
+            <div class="song-list" id="song-list">
+                <div class="song-loading">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <a href="upload.html" class="admin-link">Admin Panel</a>
+    </div>
+
+    <audio id="audio-player"></audio>
+    <script src="script.js"></script>
+</body>
+
+</html>
